@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Market Data</title>
+</head>
+<body>
+    <h1>Stock Market Data Analyzer</h1>
+
+    <form method="POST">
+        <label for="symbol">Select Stock Symbol:</label>
+        <select id="symbol" name="symbol">
+            <option value="AAPL">AAPL</option>
+            <option value="IBM">IBM</option>
+            <option value="GOOGL">GOOGL</option>
+            <option value="MSFT">MSFT</option>
+        </select>
+
+        <br>
+
+        <label for="interval">Select Time Interval:</label>
+        <select id="interval" name="interval">
+            <option value="1day">1 day</option>
+            <option value="1week">1 week</option>
+            <option value="1month">1 month</option>
+            <option value="3months">3 months</option>
+            <option value="6months">6 months</option>
+            <option value="1year">1 year</option>
+            <option value="5years">5 years</option>
+            <option value="max">Max (All Available Data)</option>
+        </select>
+
+        <br>
+
+        <input type="submit" value="Show Data">
+    </form>
+
+    {% if graph_data %}
+        <div>
+            <!-- Display the generated graph -->
+            <img src="{{ url_for('static', filename=graph_data) }}" alt="Stock Price Trends">
+        </div>
+    {% endif %}
+</body>
+</html>
